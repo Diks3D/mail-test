@@ -1,0 +1,13 @@
+{
+    "require": {
+        "php": ">=5.4.3",
+        "zendframework/zend-http": "dev-master",
+        "zendframework/zend-mail": "dev-master",
+        "zendframework/zend-form": "dev-master",
+        "zendframework/zend-validator": "dev-master",
+        "zendframework/zend-view": "dev-master"
+    },
+    "config": {
+        "process-timeout": 600
+    }
+}

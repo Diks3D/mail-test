@@ -1,0 +1,5 @@
+/vendor
+/nbproject
+._*
+_stored
+/public/storage
