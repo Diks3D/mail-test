@@ -227,7 +227,7 @@ class MailSender
             
             $fileContent = fopen($fileFullPath, 'r');
             $attachment = new Mime\Part($fileContent);
-            $attachment->type = 'application/octet-stream';
+            $attachment->type = mime_content_type($fileFullPath);
             $attachment->filename = $fileInfo['name'];
             $attachment->disposition = Mime\Mime::DISPOSITION_ATTACHMENT;
             $attachment->encoding = Mime\Mime::ENCODING_BASE64;
