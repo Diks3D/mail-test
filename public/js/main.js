@@ -79,7 +79,7 @@ jQuery(document).ready(function ($) {
         
         var formData = {
             mailAddress: $form.find('.mailAddress').val(),
-            mailSubjec: $form.find('.mailSubject').val(),
+            mailSubject: $form.find('.mailSubject').val(),
             mailContent: $form.find('.mailContent').html(),
             uploadedFiles: uploadedFiles,
             action: 'send'
