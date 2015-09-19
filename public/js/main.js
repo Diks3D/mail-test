@@ -65,6 +65,8 @@ jQuery(document).ready(function ($) {
         e.stopPropagation();
 
         $('.loader').show();
+        $('.errorsBox').html('');
+        $('.has-error').removeClass('has-error');
         
         var uploadedFiles = [];
         var $form = $(this).parents('#mailForm');
@@ -84,13 +86,23 @@ jQuery(document).ready(function ($) {
         };
         
         var jqxhr = $.post('', formData)
-                .done(function (answer) {
-                    var data = answer.responseJSON;
+                .done(function (data) {
                     $('.loader').hide();
                     if (data.code === 0) {
                         showMessage('warning', data.message);
+                        for(var fieldId in data.errors){
+                            var error = data.errors[fieldId];
+                            var $input = $('#mailForm').find('.' + fieldId);
+                            for(var errorType in error){
+                                var message = error[errorType];
+                                $('<p/>').text(message).appendTo('.errorsBox');
+                            }
+                            fileIdname = fieldId;
+                            $input.parents('.form-group').addClass('has-error');
+                        }
                     } else if (data.code === 1) {
                         //Clear form
+                        $('.has-error').removeClass('has-error');
                         showMessage('success', data.message);
                         $('#mailForm')[0].reset();
                     }
@@ -105,6 +117,8 @@ jQuery(document).ready(function ($) {
     
     //reset form and clear files storage on server
     $('#resetBtn').click(function(){
+        $('.errorsBox').html('');
+        $('.has-error').removeClass('has-error');
         $.post('', {action: 'clear'}, function(data){
             $('.uploadedFilesList').html('');
             showMessage('success', data.message);

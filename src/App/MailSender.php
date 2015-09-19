@@ -169,7 +169,7 @@ class MailSender
                         $jsonContent = json_encode(array(
                             'code' => 0,
                             'message' => 'Fix errors in some fields',
-                            ''
+                            'errors' => $form->getMessages(),
                         ));
                     }
                     break;
@@ -242,6 +242,8 @@ class MailSender
 
         $transport = new Sendmail();
         $transport->send($mail);
+        
+        return true;
     }
 
 }

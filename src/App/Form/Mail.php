@@ -4,6 +4,8 @@ namespace App\Form;
 
 use Zend\Form\Form;
 
+use App\Form\InputFilter\Mail as MailInputFilter;
+
 class Mail extends Form
 {
     public function __construct()
@@ -48,5 +50,7 @@ class Mail extends Form
                 'class' => 'btn btn-primary btn-lg'
             ),
         ));
+        
+        $this->setInputFilter(new MailInputFilter());
     }
 }
