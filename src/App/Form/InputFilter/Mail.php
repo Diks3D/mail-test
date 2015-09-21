@@ -41,7 +41,7 @@ class Mail extends InputFilter
                     'name' => 'Zend\Validator\StringLength',
                     'options' => array(
                         'min' => 15,
-                        'max' => 2000,
+                        'max' => 10000,
                     ),
                 ),
             )

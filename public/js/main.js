@@ -104,6 +104,7 @@ jQuery(document).ready(function ($) {
                         //Clear form
                         $('.has-error').removeClass('has-error');
                         showMessage('success', data.message);
+                        $('.uploadedFilesList').html('');
                         $('#mailForm')[0].reset();
                     }
                 })
