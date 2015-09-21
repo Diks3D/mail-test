@@ -32,6 +32,20 @@ class Mail extends InputFilter
                 ),
             )
         ));
+        
+        //Password
+        $this->add(array(
+            'name' => 'mailContent',
+            'required' => true,
+            'validators' => array(array(
+                    'name' => 'Zend\Validator\StringLength',
+                    'options' => array(
+                        'min' => 15,
+                        'max' => 2000,
+                    ),
+                ),
+            )
+        ));
     }
 
 }

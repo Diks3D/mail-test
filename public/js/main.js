@@ -80,7 +80,7 @@ jQuery(document).ready(function ($) {
         var formData = {
             mailAddress: $form.find('.mailAddress').val(),
             mailSubject: $form.find('.mailSubject').val(),
-            mailContent: $form.find('.mailContent').html(),
+            mailContent: tinyMCE.get('mailContent').getContent(),
             uploadedFiles: uploadedFiles,
             action: 'send'
         };
